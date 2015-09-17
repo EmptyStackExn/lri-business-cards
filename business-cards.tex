@@ -1,0 +1,54 @@
+\documentclass[a4paper,10pt]{letter}
+
+\usepackage[zw32010,crossmark]{ticket}
+
+% load misc stuff
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{marvosym}
+
+% Sets default font to ``Computer Modern Bright''
+\usepackage{cmbright}
+\usepackage[T1]{fontenc}
+
+% Define two main colors
+\definecolor{uni}{RGB}{45, 56, 78}
+\definecolor{unifade}{RGB}{66, 82, 114}
+
+\renewcommand{\ticketdefault}{%
+}
+
+% Layout
+\newcommand{\vcardfront}[5]{\ticket{%
+    \put(68, 30.5){\includegraphics[width=9mm]{img/upsud.png}}
+    \put(68, 17){\includegraphics[width=9mm]{img/lri.png}}
+
+    \put(6, 43){\textbf{\large #1}, MSc}
+    \put(6, 39){#2}
+
+    \put(6, 26){\scriptsize \Telefon \quad #3}
+    \put(6, 22.5){\scriptsize \Letter \quad #4}
+    \put(6, 19){\scriptsize \Mundus \quad #5}
+
+    \put(6, 15){\color{unifade} \line(1,0){54}}
+    \put(6, 12){\color{unifade} \scriptsize Laboratoire de Recherche en Informatique (LRI)}
+    \put(6, 8.5){\color{unifade} \scriptsize Universit\'e Paris-Sud -- B\^atiment 650}
+    \put(6, 5){\color{unifade} \scriptsize 91405 Orsay Cedex, FRANCE}
+ }}
+
+% A counter, which makes life easier...
+\newcounter{numcards}
+
+% Define a common color for the whole text
+\color{uni}
+
+\begin{document}
+\sffamily
+
+% ten cards for the front
+\whiledo{\thenumcards<10}{%
+  \stepcounter{numcards}%
+  \vcardfront{Hai Nguyen Van}{PhD Candidate}{+33 644 000 871}{hai.nguyen-van@lri.fr}{perso.crans.org/nguyen-van}
+}
+
+\end{document}
